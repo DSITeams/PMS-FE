@@ -2,15 +2,6 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { logout } from '../../stores/slice/authSlice';
 import Header from '../../components/header';
-import InfoItem from '../../components/info/InfoItem';
-import CardInfo from '../../components/info';
-import {
-  FaArrowDown,
-  FaArrowUp,
-  FaDoorOpen,
-  FaHouse,
-  FaRepeat,
-} from 'react-icons/fa6';
 import Sidebar from '../../components/sidebar/Sidebar';
 import SidebarItem from '../../components/sidebar/SidebarItem';
 import HomeIcon from '../../assets/icons/Home';
@@ -24,10 +15,106 @@ import BoxIcon from '../../assets/icons/Box';
 import BookIcon from '../../assets/icons/Book';
 import BarChartIcon from '../../assets/icons/BarChart';
 import DeskIcon from '../../assets/icons/Desk';
+import {
+  FaHouse,
+  FaArrowDown,
+  FaDoorOpen,
+  FaArrowUp,
+  FaRepeat,
+} from 'react-icons/fa6';
+import CardInfo from '../../components/info';
+import InfoItem from '../../components/info/InfoItem';
 
 const Dashboard = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const sidebarItems = [
+    { text: 'Dashboard', icon: <HomeIcon /> },
+    {
+      text: 'Reception',
+      icon: <UserIcon />,
+      subMenu: ['Check In', 'Check Out', 'Room'],
+    },
+    {
+      text: 'Reservation',
+      icon: <DeskIcon />,
+      subMenu: ['New Reservation', 'All Reservation'],
+    },
+    {
+      text: 'Marketing',
+      icon: <BarChartIcon />,
+      subMenu: ['Corporate', 'Travel Agent', 'Source of Business'],
+    },
+    { text: 'Night Audit', icon: <BookIcon /> },
+    {
+      text: 'Housekeeping',
+      icon: <BoxIcon />,
+      subMenu: ['Room Status', 'Room Assignment'],
+    },
+    { text: 'Tools', icon: <SettingIcon />, subMenu: ['User', 'Setting'] },
+    {
+      text: 'Report',
+      icon: <FileIcon />,
+      subMenu: ['Daily Report', 'Monthly Report', 'Yearly Report'],
+    },
+    {
+      text: 'Statistic',
+      icon: <ChartIcon />,
+      subMenu: ['Daily Statistic', 'Monthly Statistic', 'Yearly Statistic'],
+    },
+    {
+      text: 'Telephone',
+      icon: <PhoneIcon />,
+      subMenu: ['New Telephone', 'All Telephone'],
+    },
+    {
+      text: 'Engineering',
+      icon: <UserIcon />,
+      subMenu: ['New Engineering', 'All Engineering'],
+    },
+    {
+      text: 'Settings',
+      icon: <SettingIcon />,
+      subMenu: ['New Settings', 'All Settings'],
+    },
+    {
+      text: 'Help',
+      icon: <QuestionIcon />,
+      subMenu: ['New Help', 'All Help', 'FAQ'],
+    },
+
+    {
+      text: 'Help',
+      icon: <QuestionIcon />,
+      subMenu: ['New Help', 'All Help', 'FAQ'],
+    },
+    {
+      text: 'Help',
+      icon: <QuestionIcon />,
+      subMenu: ['New Help', 'All Help', 'FAQ'],
+    },
+    {
+      text: 'Help',
+      icon: <QuestionIcon />,
+      subMenu: ['New Help', 'All Help', 'FAQ'],
+    },
+    {
+      text: 'Help',
+      icon: <QuestionIcon />,
+      subMenu: ['New Help', 'All Help', 'FAQ'],
+    },
+    {
+      text: 'Help',
+      icon: <QuestionIcon />,
+      subMenu: ['New Help', 'All Help', 'FAQ'],
+    },
+    {
+      text: 'Help',
+      icon: <QuestionIcon />,
+      subMenu: ['New Help', 'All Help', 'FAQ'],
+    },
+  ];
 
   const handleLogout = () => {
     dispatch(logout());
@@ -37,83 +124,14 @@ const Dashboard = () => {
   return (
     <div className='h-screen w-screen flex bg-color'>
       <Sidebar>
-        <SidebarItem text='Dashboard' icon={<HomeIcon />} />
-        <SidebarItem
-          text='Reception'
-          icon={<UserIcon />}
-          subMenu={[
-            { text: 'Check In' },
-            { text: 'Check Out' },
-            { text: 'Room' },
-          ]}
-        />
-        <SidebarItem
-          text='Reservation'
-          icon={<DeskIcon />}
-          subMenu={[{ text: 'New Reservation' }, { text: 'All Reservation' }]}
-        />
-        <SidebarItem
-          text='Marketing'
-          icon={<BarChartIcon />}
-          subMenu={[
-            { text: 'Corporate' },
-            { text: 'Travel Agent' },
-            { text: 'Source of Business' },
-          ]}
-        />
-        <SidebarItem text='Night Audit' icon={<BookIcon />} />
-        <SidebarItem
-          text='Housekeeping'
-          icon={<BoxIcon />}
-          subMenu={[{ text: 'Room Status' }, { text: 'Room Assignment' }]}
-        />
-        <SidebarItem
-          text='Tools'
-          icon={<SettingIcon />}
-          subMenu={[{ text: 'User' }, { text: 'Setting' }]}
-        />
-        <SidebarItem
-          text='Report'
-          icon={<FileIcon />}
-          subMenu={[
-            { text: 'Daily Report' },
-            { text: 'Monthly Report' },
-            { text: 'Yearly Report' },
-          ]}
-        />
-        <SidebarItem
-          text='Statictic'
-          icon={<ChartIcon />}
-          subMenu={[
-            { text: 'Daily Statictic' },
-            { text: 'Monthly Statictic' },
-            { text: 'Yearly Statictic' },
-          ]}
-        />
-        <SidebarItem
-          text='Telephone'
-          icon={<PhoneIcon />}
-          subMenu={[{ text: 'New Telephone' }, { text: 'All Telephone' }]}
-        />
-        <SidebarItem
-          text='Engineering'
-          icon={<UserIcon />}
-          subMenu={[{ text: 'New Engineering' }, { text: 'All Engineering' }]}
-        />
-        <SidebarItem
-          text='Settings'
-          icon={<SettingIcon />}
-          subMenu={[{ text: 'New Settings' }, { text: 'All Settings' }]}
-        />
-        <SidebarItem
-          text='Help'
-          icon={<QuestionIcon />}
-          subMenu={[
-            { text: 'New Help' },
-            { text: 'All Help' },
-            { text: 'FAQ' },
-          ]}
-        />
+        {sidebarItems.map(({ text, icon, subMenu }) => (
+          <SidebarItem
+            key={text}
+            text={text}
+            icon={icon}
+            subMenu={subMenu?.map((text) => ({ text }))}
+          />
+        ))}
       </Sidebar>
       <div className='flex-col w-screen h-screen'>
         <Header
