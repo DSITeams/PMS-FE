@@ -16,11 +16,11 @@ function AppRoutes() {
       <Routes>
         <Route
           path='/'
-          element={isAuth ? <Navigate to='/dashboard' /> : <Login />}
+          element={<Login />}
         />
         <Route
           path='/dashboard'
-          element={isAuth ? <Dashboard /> : <Navigate to='/' />}
+          element={<Dashboard />}
         />
       </Routes>
     </Router>

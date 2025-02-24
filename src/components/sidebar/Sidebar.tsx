@@ -11,7 +11,7 @@ const Sidebar: React.FC<SidebarProps> = ({ children }) => {
   const [activeItem, setActiveItem] = useState<string>('Dashboard');
 
   return (
-    <aside className='h-screen'>
+    <aside className='scrollbar-hide hidden lg:block xl:block'>
       <nav className='h-full flex flex-col bg-white shadow-sm'>
         <div className='p-4 pb-2 flex justify-between items-center mb-4'>
           <img

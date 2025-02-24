@@ -28,7 +28,7 @@ const HeaderProfile: React.FC<HeaderProfileProps> = ({
           <img
             src={profilePict}
             alt='profile'
-            className='w-15 h-15 rounded-full object-cover border border-gray-300'
+            className='w-13 h-13 rounded-full object-cover border border-gray-300'
           />
         </div>
 
