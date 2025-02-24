@@ -1,37 +1,11 @@
-import React, { createContext, useState } from 'react';
+import { createContext } from 'react';
 
-interface SidebarContextType {
+interface SidebarContextProps {
   expanded: boolean;
   activeItem: string;
-  setExpanded: (expanded: boolean) => void;
   setActiveItem: (item: string) => void;
-  openSubMenu: string | null;
-  setOpenSubMenu: (subMenu: string | null) => void;
 }
 
-const SidebarContext = createContext<SidebarContextType | undefined>(undefined);
-
-export const SidebarProvider: React.FC<{ children: React.ReactNode }> = ({
-  children,
-}) => {
-  const [expanded, setExpanded] = useState(false);
-  const [activeItem, setActiveItem] = useState('');
-  const [openSubMenu, setOpenSubMenu] = useState<string | null>(null);
-
-  return (
-    <SidebarContext.Provider
-      value={{
-        expanded,
-        activeItem,
-        setExpanded,
-        setActiveItem,
-        openSubMenu,
-        setOpenSubMenu,
-      }}
-    >
-      {children}
-    </SidebarContext.Provider>
-  );
-};
-
-export { SidebarContext };
+export const SidebarContext = createContext<SidebarContextProps | undefined>(
+  undefined
+);

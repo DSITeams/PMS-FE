@@ -1,4 +1,5 @@
-import { useSidebarContext } from '../../hooks/useSidebarContext';
+import { useContext, useState } from 'react';
+import { SidebarContext } from './SidebarContext';
 import { FaChevronDown, FaChevronRight } from 'react-icons/fa6';
 import React from 'react';
 
@@ -16,51 +17,30 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
   alert = false,
   subMenu,
 }) => {
-  const {
-    expanded,
-    activeItem,
-    setActiveItem,
-    setExpanded,
-    openSubMenu,
-    setOpenSubMenu,
-  } = useSidebarContext();
+  const context = useContext(SidebarContext);
 
-  if (!useSidebarContext) {
-    throw new Error('SidebarItem must be used within a SidebarProvider');
+  if (!context) {
+    throw new Error('SidebarItem must be used within a Sidebar');
   }
 
-  const isSubMenuActive = subMenu?.some(
-    (subItem) => subItem.text === activeItem
-  );
-
-  const isActive = activeItem === text || isSubMenuActive;
-
-  const handleItemClick = () => {
-    if (subMenu) {
-      if (!expanded) {
-        setExpanded(true);
-      }
-      if (openSubMenu === text) {
-        setOpenSubMenu(null);
-      } else {
-        setOpenSubMenu(text);
-      }
-    } else {
-      setExpanded(true);
-      setActiveItem(text);
-    }
-  };
-
-  const isOpen = openSubMenu === text;
+  const { expanded, activeItem, setActiveItem } = context;
+  const [isOpen, setIsOpen] = useState(false);
+  const isActive = activeItem === text;
 
   return (
-    <li className='flex flex-col relative justify-center'>
+    <li className='relative'>
       <div
-        onClick={handleItemClick}
+        onClick={() => {
+          if (subMenu) {
+            setIsOpen((prev) => !prev);
+          } else {
+            setActiveItem(text);
+          }
+        }}
         className={`
           flex items-center justify-between px-1 py-2 my-2
           font-medium rounded-md cursor-pointer
-          transition-colors group whitespace-nowrap
+          transition-colors group
           ${
             isActive
               ? 'bg-indigo-200 text-blue-primary'
@@ -109,13 +89,11 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
         {!expanded && (
           <div
             className={`
-      absolute left-full top-1/2 -translate-y-1/2
-      rounded-md px-2 py-1 ml-6 bg-indigo-100 text-blue-primary
-      text-sm font-light whitespace-nowrap w-auto max-w-xs
-      invisible opacity-0 -translate-x-3 transition-all
-      group-hover:visible group-hover:opacity-100 group-hover:translate-x-0
-      z-50
-    `}
+          absolute left-full rounded-md px-2 py-1 ml-6 w-fit inline-flex
+          bg-indigo-100 text-blue-primary text-sm font-light whitespace-nowrap
+          invisible opacity-20 -translate-x-3 transition-all
+          group-hover:visible group-hover:opacity-100 group-hover:translate-x-0
+      `}
           >
             <span>{text}</span>
           </div>
