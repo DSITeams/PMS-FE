@@ -2,12 +2,14 @@ import { ReactNode } from 'react';
 import { FaBars, FaXmark } from 'react-icons/fa6';
 import { SidebarProvider } from './SidebarContext';
 import { useSidebarContext } from '../../hooks/useSidebarContext';
+import FormSearch from '../FormSearch';
 
 interface SidebarProps {
   children?: ReactNode;
+  onSearch: (query: string) => void;
 }
 
-const Sidebar: React.FC<SidebarProps> = ({ children }) => {
+const Sidebar: React.FC<SidebarProps> = ({ children, onSearch }) => {
   const { expanded, setExpanded } = useSidebarContext();
 
   return (
@@ -29,6 +31,12 @@ const Sidebar: React.FC<SidebarProps> = ({ children }) => {
           </button>
         </div>
 
+        {expanded && (
+          <div className='mx-4'>
+            <FormSearch placeholder='Search...' onSearch={onSearch} />
+          </div>
+        )}
+
         <div className='flex-1 px-3 overflow-y-auto scrollbar-hide sidebar-container'>
           <ul className='h-full'>{children}</ul>
         </div>
@@ -37,10 +45,13 @@ const Sidebar: React.FC<SidebarProps> = ({ children }) => {
   );
 };
 
-const SidebarWithProvider: React.FC<SidebarProps> = ({ children }) => {
+const SidebarWithProvider: React.FC<SidebarProps> = ({
+  children,
+  onSearch,
+}) => {
   return (
     <SidebarProvider>
-      <Sidebar>{children}</Sidebar>
+      <Sidebar onSearch={onSearch}>{children}</Sidebar>
     </SidebarProvider>
   );
 };
