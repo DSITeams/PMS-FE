@@ -128,7 +128,7 @@ const Layout = () => {
         />
 
         {/* content */}
-        <Outlet />
+           <Outlet />
         {/* end content */}
       </div>
     </div>
