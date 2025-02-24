@@ -1,8 +1,8 @@
-import { useState, ReactNode } from 'react';
+import { ReactNode } from 'react';
 import { FaBars, FaXmark } from 'react-icons/fa6';
 import { SidebarProvider } from './SidebarContext';
-import { useSidebarContext } from '../../hooks/useSidebarContext';
 import FormSearch from '../FormSearch';
+import { useSidebarContext } from '../../hooks/useSidebarContext ';
 
 interface SidebarProps {
   children?: ReactNode;
@@ -19,12 +19,12 @@ const Sidebar: React.FC<SidebarProps> = ({ children, onSearch }) => {
           <img
             src='/src/assets/icons/logo.png'
             className={`overflow-hidden transition-all duration-300 ${
-              expanded ? 'w-10' : 'w-0'
+              expanded ? 'w-12' : 'w-0'
             }`}
             alt='Logo'
           />
           <button
-            onClick={() => setExpanded((curr) => !curr)}
+            onClick={() => setExpanded(!expanded)}
             className='p-1.5 rounded-lg bg-white hover:bg-white'
           >
             {expanded ? <FaXmark /> : <FaBars className='w-6 h-6' />}
