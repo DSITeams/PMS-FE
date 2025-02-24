@@ -1,14 +1,16 @@
 import { useState, ReactNode } from 'react';
 import { FaBars, FaXmark } from 'react-icons/fa6';
-import { SidebarContext } from './SidebarContext';
+import { SidebarProvider } from './SidebarContext';
+import { useSidebarContext } from '../../hooks/useSidebarContext';
+import FormSearch from '../FormSearch';
 
 interface SidebarProps {
   children?: ReactNode;
+  onSearch: (query: string) => void;
 }
 
-const Sidebar: React.FC<SidebarProps> = ({ children }) => {
-  const [expanded, setExpanded] = useState<boolean>(true);
-  const [activeItem, setActiveItem] = useState<string>('Dashboard');
+const Sidebar: React.FC<SidebarProps> = ({ children, onSearch }) => {
+  const { expanded, setExpanded } = useSidebarContext();
 
   return (
     <aside className='scrollbar-hide hidden lg:block xl:block'>
@@ -29,14 +31,29 @@ const Sidebar: React.FC<SidebarProps> = ({ children }) => {
           </button>
         </div>
 
-        <SidebarContext.Provider
-          value={{ expanded, activeItem, setActiveItem }}
-        >
-          <ul className='flex-1 px-3'>{children}</ul>
-        </SidebarContext.Provider>
+        {expanded && (
+          <div className='mx-4'>
+            <FormSearch placeholder='Search...' onSearch={onSearch} />
+          </div>
+        )}
+
+        <div className='flex-1 px-3 overflow-y-auto scrollbar-hide sidebar-container'>
+          <ul className='h-full'>{children}</ul>
+        </div>
       </nav>
     </aside>
   );
 };
 
-export default Sidebar;
+const SidebarWithProvider: React.FC<SidebarProps> = ({
+  children,
+  onSearch,
+}) => {
+  return (
+    <SidebarProvider>
+      <Sidebar onSearch={onSearch}>{children}</Sidebar>
+    </SidebarProvider>
+  );
+};
+
+export default SidebarWithProvider;
