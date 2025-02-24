@@ -32,7 +32,7 @@ const FormInput = ({
         htmlFor={id}
         className={`absolute pl-2 pr-2 left-4 transition-all duration-200 ${
           isFocused || hasValue
-            ? 'text-blue-primary text-s top-0 -translate-y-3 bg-white px-1 font-light'
+            ? 'text-blue-primary text-s top-0 -translate-y-3 bg-color px-1 font-light'
             : 'text-gray-400 top-1/2 transform -translate-y-1/2 font-light'
         }`}
       >
