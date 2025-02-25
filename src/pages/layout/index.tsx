@@ -116,7 +116,12 @@ const Layout = () => {
         </Sidebar>
       </div>
       <div className='flex-1 h-[100%]'>
-        <NavMobile className='sm:block md:block lg:hidden xl:hidden mb-5' />
+        <NavMobile
+         name={'Windah Batubara'}
+         position={'Administrator'}
+         changePassword={() => console.log('edit password')}
+         logout={handleLogout}
+         className='sm:block md:block lg:hidden xl:hidden mb-5' />
         <Header
           title={'Dashboard'}
           subtitle={'Dashboard'}

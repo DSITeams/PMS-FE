@@ -24,7 +24,7 @@ const FormSearch: React.FC<FormSearchProps> = ({ placeholder, onSearch }) => {
         placeholder={placeholder}
         value={query}
         onChange={handleChange}
-        className='w-full p-2 border-none focus:outline-none'
+        className='w-full p-1 border-none focus:outline-none'
       />
     </div>
   );

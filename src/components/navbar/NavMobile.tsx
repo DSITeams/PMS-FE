@@ -1,10 +1,26 @@
 import { useState } from "react";
+import {
+  FaArrowRightFromBracket,
+  FaLock,
+} from "react-icons/fa6";
+import NavbarItem from "./NavbarItem";
 
 interface ModalProps {
   modalOpen?: () => void;
   className?: string;
+  name: string;
+  position: string;
+  changePassword: () => void;
+  logout: () => void;
 }
-const NavMobile: React.FC<ModalProps> = ({ modalOpen, className }) => {
+const NavMobile: React.FC<ModalProps> = ({
+  modalOpen,
+  className,
+  name,
+  position,
+  changePassword,
+  logout,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isOpenNav, setOpenNav] = useState(false);
 
@@ -69,7 +85,7 @@ const NavMobile: React.FC<ModalProps> = ({ modalOpen, className }) => {
               <div className="flex shrink-0 items-center">
                 <img
                   className="h-8 w-auto"
-                  src="/vite.svg"
+                  src="/src/assets/icons/logo.png"
                   alt="Your Company"
                 />
               </div>
@@ -122,40 +138,30 @@ const NavMobile: React.FC<ModalProps> = ({ modalOpen, className }) => {
                 </div>
 
                 {isOpen && (
-                  <div
-                    className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 ring-1 shadow-lg ring-black/5 focus:outline-hidden"
-                    role="menu"
-                    aria-orientation="vertical"
-                    aria-labelledby="user-menu-button"
-                    tabIndex={-1}
-                  >
-                    <a
-                      href="#"
-                      className="block px-4 py-2 text-sm text-gray-700"
-                      role="menuitem"
-                      tabIndex={-1}
-                      id="user-menu-item-0"
-                    >
-                      Your Profile
-                    </a>
-                    <a
-                      href="#"
-                      className="block px-4 py-2 text-sm text-gray-700"
-                      role="menuitem"
-                      tabIndex={-1}
-                      id="user-menu-item-1"
-                    >
-                      Settings
-                    </a>
-                    <a
-                      href="#"
-                      className="block px-4 py-2 text-sm text-gray-700"
-                      role="menuitem"
-                      tabIndex={-1}
-                      id="user-menu-item-2"
-                    >
-                      Sign out
-                    </a>
+                  <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 shadow-lg rounded-lg p-2">
+                    <p className="px-4 text-gray-700 font-semibold">{name}</p>
+                    <span className="px-4 py-2 font-light text-xs">
+                      {position}
+                    </span>
+                    <hr className="mt-2" />
+                    <div className="flex items-center ml-4">
+                      <FaLock className="text-black" />
+                      <button
+                        className="w-full text-left px-4 py-2 text-sm text-gray-600 hover:bg-gray-100"
+                        onClick={changePassword}
+                      >
+                        Edit Password
+                      </button>
+                    </div>
+                    <div className="flex items-center ml-4">
+                      <FaArrowRightFromBracket className="text-red-500" />
+                      <button
+                        className="w-full text-left px-4 py-2 text-sm text-gray-600 hover:bg-gray-100"
+                        onClick={logout}
+                      >
+                        Logout
+                      </button>
+                    </div>
                   </div>
                 )}
               </div>
@@ -164,33 +170,11 @@ const NavMobile: React.FC<ModalProps> = ({ modalOpen, className }) => {
         </div>
 
         {isOpenNav && (
-          <div className="sm:block md:block lg:hidden xl:hidden absolute bg-white w-full" id="mobile-menu">
-            <div className="space-y-1 px-2 pt-2 pb-3">
-              <a
-                href="#"
-                className="block rounded-md bg-indigo-200 text-blue-primary px-3 py-2 text-base font-medium "
-              >
-                Dashboard
-              </a>
-              <a
-                href="#"
-                className="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-indigo-50"
-              >
-                Team
-              </a>
-              <a
-                href="#"
-                className="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-indigo-50"
-              >
-                Projects
-              </a>
-              <a
-                href="#"
-                className="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-indigo-50"
-              >
-                Calendar
-              </a>
-            </div>
+          <div
+            className="sm:block md:block lg:hidden xl:hidden absolute bg-white w-full"
+            id="mobile-menu"
+          >
+            <NavbarItem />
           </div>
         )}
       </nav>
