@@ -8,8 +8,21 @@ import TableIcon from '../../assets/icons/Table';
 import WalletIcon from '../../assets/icons/Wallet';
 import CardDashboard from '../../components/card/CardDashboard';
 import InfoItem from '../../components/info/InfoItem';
+import Chart from '../../components/Chart';
 
 const Dashboard = () => {
+  const data = [
+    { day: 1, value: 5000 },
+    { day: 2, value: 7000 },
+    { day: 3, value: 6000 },
+    { day: 4, value: 8000 },
+    { day: 5, value: 9000 },
+    { day: 6, value: 4000 },
+    { day: 7, value: 3000 },
+  ];
+
+  const daysOfWeek = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'];
+
   return (
     <div className='flexmd:flex-col lg:flex-row xl:flex-row gap-4'>
       <div className='flex flex-col md:flex-col lg:flex-row xl:flex-row gap-4 px-8'>
@@ -85,36 +98,13 @@ const Dashboard = () => {
       </div>
       <div className='flex flex-col md:flex-col lg:flex-row xl:flex-row gap-4 px-8'>
         <CardDashboard
-          title={'Current'}
+          title={'Outlet Revenue'}
           useDate
           isRangePicker={true}
           icon={<TableIcon w={9} h={9} />}
           content={
             <>
-              <div className='flex flex-wrap gap-8 justify-between'>
-                <InfoItem
-                  title='% Sold'
-                  value='116.4 %'
-                  icons={<HomeIcon isActive />}
-                />
-                <InfoItem
-                  title='Sold Room'
-                  value='78'
-                  icons={<BedIcon isActive />}
-                />
-              </div>
-              <div className='flex flex-wrap gap-8 justify-between mt-4'>
-                <InfoItem
-                  title='Expected Arrival'
-                  value='116.4 %'
-                  icons={<InIcon isActive />}
-                />
-                <InfoItem
-                  title='Expected Departure'
-                  value='78'
-                  icons={<OutIcon isActive />}
-                />
-              </div>
+              <Chart data={data} daysOfWeek={daysOfWeek} />
             </>
           }
         />
