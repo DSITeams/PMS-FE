@@ -1,8 +1,8 @@
 import { ReactNode } from 'react';
 import { FaBars, FaXmark } from 'react-icons/fa6';
 import { SidebarProvider } from './SidebarContext';
-import { useSidebarContext } from '../../hooks/useSidebarContext';
 import FormSearch from '../FormSearch';
+import { useSidebarContext } from '../../hooks/useSidebarContext ';
 
 interface SidebarProps {
   children?: ReactNode;

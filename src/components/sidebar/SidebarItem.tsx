@@ -1,6 +1,6 @@
-import { useSidebarContext } from '../../hooks/useSidebarContext';
 import { FaChevronDown, FaChevronRight } from 'react-icons/fa6';
 import React from 'react';
+import { useSidebarContext } from '../../hooks/useSidebarContext ';
 
 interface SidebarItemProps {
   icon?: React.ReactElement<{ isActive: boolean }>;

@@ -2,7 +2,7 @@ import React from 'react';
 
 interface InIconProps {
   w?: number;
-  h: number;
+  h?: number;
   isActive?: boolean;
 }
 const InIcon: React.FC<InIconProps> = ({ w = 6, h = 6, isActive }) => {

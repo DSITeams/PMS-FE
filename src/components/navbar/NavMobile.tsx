@@ -142,7 +142,7 @@ const NavMobile: React.FC<ModalProps> = ({
                 </div>
 
                 {isOpen && (
-                  <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 shadow-lg rounded-lg p-2">
+                  <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 shadow-lg rounded-lg p-2 z-100">
                     <p className="px-4 text-gray-700 font-semibold">{name}</p>
                     <span className="px-4 py-2 font-light text-xs">
                       {position}

@@ -1,25 +1,25 @@
-import { Outlet, useNavigate } from "react-router-dom";
-import Sidebar from "../../components/sidebar/Sidebar";
-import Header from "../../components/header";
-import { useDispatch, useSelector } from "react-redux";
-import HomeIcon from "../../assets/icons/Home";
-import UserIcon from "../../assets/icons/User";
-import DeskIcon from "../../assets/icons/Desk";
-import BarChartIcon from "../../assets/icons/BarChart";
-import BookIcon from "../../assets/icons/Book";
-import BoxIcon from "../../assets/icons/Box";
-import SettingIcon from "../../assets/icons/Setting";
-import FileIcon from "../../assets/icons/File";
-import ChartIcon from "../../assets/icons/Chart";
-import PhoneIcon from "../../assets/icons/Phone";
-import QuestionIcon from "../../assets/icons/Question";
-import { logout } from "../../stores/slice/authSlice";
-import SidebarItem from "../../components/sidebar/SidebarItem";
-import NavMobile from "../../components/navbar/NavMobile";
-import { useState } from "react";
-import ModalAlert from "../../components/modal/ModalAlert";
-import { AppDispatch, RootState } from "../../stores/store";
-import { closeModal, openModal } from "../../stores/slice/modalSlice";
+import { Outlet, useNavigate } from 'react-router-dom';
+import Sidebar from '../../components/sidebar/Sidebar';
+import Header from '../../components/header';
+import { useDispatch, useSelector } from 'react-redux';
+import HomeIcon from '../../assets/icons/Home';
+import UserIcon from '../../assets/icons/User';
+import DeskIcon from '../../assets/icons/Desk';
+import BarChartIcon from '../../assets/icons/BarChart';
+import BookIcon from '../../assets/icons/Book';
+import BoxIcon from '../../assets/icons/Box';
+import SettingIcon from '../../assets/icons/Setting';
+import FileIcon from '../../assets/icons/File';
+import PhoneIcon from '../../assets/icons/Phone';
+import QuestionIcon from '../../assets/icons/Question';
+import { logout } from '../../stores/slice/authSlice';
+import SidebarItem from '../../components/sidebar/SidebarItem';
+import NavMobile from '../../components/navbar/NavMobile';
+import { useState } from 'react';
+import ChartMenuIcon from '../../assets/icons/ChartMenu';
+import { AppDispatch, RootState } from '../../stores/store';
+import ModalAlert from '../../components/modal/ModalAlert';
+import { closeModal } from '../../stores/slice/modalSlice';
 
 const Layout = () => {
   const dispatch: AppDispatch = useDispatch();
@@ -56,9 +56,9 @@ const Layout = () => {
       subMenu: ["Daily Report", "Monthly Report", "Yearly Report"],
     },
     {
-      text: "Statistic",
-      icon: <ChartIcon />,
-      subMenu: ["Daily Statistic", "Monthly Statistic", "Yearly Statistic"],
+      text: 'Statistic',
+      icon: <ChartMenuIcon />,
+      subMenu: ['Daily Statistic', 'Monthly Statistic', 'Yearly Statistic'],
     },
     {
       text: "Telephone",
