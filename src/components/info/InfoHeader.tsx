@@ -69,7 +69,7 @@ const InfoHeader: React.FC<InfoHeaderProps> = ({
     : formatDate(new Date());
 
   return (
-    <div className='flex flex-col md:flex-row items-start md:items-center justify-between w-full space-y-2 md:space-y-0'>
+    <div className='flex h-10 flex-col md:flex-row items-start md:items-center justify-between w-full space-y-2 md:space-y-0 mb-6'>
       <h2 className='text-md font-semibold mb-2 md:mb-0'>{title}</h2>
       <div className='flex flex-row items-center justify-between w-full md:w-auto space-x-2'>
         {useDate && (
@@ -82,8 +82,9 @@ const InfoHeader: React.FC<InfoHeaderProps> = ({
               <span className='text-gray-400'>{displayDate}</span>
             </div>
             {showCalendar && (
-              <div className='absolute z-10 right-0 bg-white shadow-lg rounded-lg overflow-auto md:right-0 sm:right-0'>
+              <div className='absolute top-full z-10 right-0 bg-white shadow-lg rounded-lg overflow-auto md:right-0 sm:right-0 mt-2'>
                 <Calendar
+                  locale='en-EN'
                   className='react-calendar'
                   onChange={handleDateChange}
                   selectRange={isRangePicker}

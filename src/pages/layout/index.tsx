@@ -10,13 +10,13 @@ import BookIcon from '../../assets/icons/Book';
 import BoxIcon from '../../assets/icons/Box';
 import SettingIcon from '../../assets/icons/Setting';
 import FileIcon from '../../assets/icons/File';
-import ChartIcon from '../../assets/icons/Chart';
 import PhoneIcon from '../../assets/icons/Phone';
 import QuestionIcon from '../../assets/icons/Question';
 import { logout } from '../../stores/slice/authSlice';
 import SidebarItem from '../../components/sidebar/SidebarItem';
 import NavMobile from '../../components/navbar/NavMobile';
 import { useState } from 'react';
+import ChartMenuIcon from '../../assets/icons/ChartMenu';
 
 const Layout = () => {
   const dispatch = useDispatch();
@@ -55,7 +55,7 @@ const Layout = () => {
     },
     {
       text: 'Statistic',
-      icon: <ChartIcon />,
+      icon: <ChartMenuIcon />,
       subMenu: ['Daily Statistic', 'Monthly Statistic', 'Yearly Statistic'],
     },
     {
@@ -128,7 +128,7 @@ const Layout = () => {
         />
 
         {/* content */}
-           <Outlet />
+        <Outlet />
         {/* end content */}
       </div>
     </div>
