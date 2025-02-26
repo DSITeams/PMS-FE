@@ -21,7 +21,7 @@ const Header: React.FC<HeaderProps> = ({
   logout,
 }) => {
   return (
-    <div className='items-center justify-between h-30 hidden lg:flex xl:flex'>
+    <div className='items-center justify-between hidden lg:flex xl:flex px-5 py-5'>
       <HeaderTitle title={title} subtitle={subtitle} />
       <HeaderProfile
         profilePict={profilePict}

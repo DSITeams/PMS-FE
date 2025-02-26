@@ -18,7 +18,6 @@ const FormSearch: React.FC<FormSearchProps> = ({ placeholder, onSearch }) => {
 
   return (
     <div className='flex px-2 py-1 items-center border border-gray-400 rounded-lg my-3'>
-      <SearchIcon w={7} h={7} />
       <input
         type='text'
         placeholder={placeholder}
@@ -26,6 +25,8 @@ const FormSearch: React.FC<FormSearchProps> = ({ placeholder, onSearch }) => {
         onChange={handleChange}
         className='w-full p-1 border-none focus:outline-none'
       />
+      <SearchIcon w={7} h={7} />
+
     </div>
   );
 };

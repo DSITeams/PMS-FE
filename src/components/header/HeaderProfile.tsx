@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { FaArrowRightFromBracket, FaLock, FaMoon } from 'react-icons/fa6';
+import { openModal } from '../../stores/slice/modalSlice';
+import { useDispatch } from 'react-redux';
+import { AppDispatch } from '../../stores/store';
 
 interface HeaderProfileProps {
   profilePict: string;
@@ -16,10 +19,11 @@ const HeaderProfile: React.FC<HeaderProfileProps> = ({
   logout,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const dispatch: AppDispatch = useDispatch();
 
   return (
-    <div className='flex m-8 justify-center items-center'>
-      <FaMoon className='text-black mr-8 w-6 h-6' />
+    <div className='flex justify-center items-center'>
+      <FaMoon className='text-black mr-8 w-6 h-6' onClick={() => dispatch(openModal())} />
       <div className='relative'>
         <div
           className='flex items-center cursor-pointer'

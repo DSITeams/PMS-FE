@@ -11,9 +11,10 @@ interface MenuItem {
 
 interface NavbarItemProps {
   items: MenuItem[];
+  onClose?: () => void
 }
 
-const NavbarItem: React.FC<NavbarItemProps> = ({ items }) => {
+const NavbarItem: React.FC<NavbarItemProps> = ({ items, onClose }) => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -57,18 +58,27 @@ const NavbarItem: React.FC<NavbarItemProps> = ({ items }) => {
               {openIndex === index && item.submenu && (
                 <div className="ml-4 mt-2 space-y-1">
                   {item.submenu?.map((subItem, subIndex) => (
-                    <Link to={subItem.href ?? '#'} key={subIndex} className="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-indigo-50">{subItem.text}</Link>
+                    <Link
+                      to={subItem.href ?? "#"}
+                      key={subIndex}
+                      className="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-indigo-50"
+                      onClick={onClose}
+                    >
+                      {subItem.text}
+                    </Link>
                   ))}
                 </div>
               )}
             </div>
           ) : (
-            <a
-              href={item.href}
+            <Link
+              to={item.href ?? "#"}
+              key={index}
               className="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-indigo-50"
+              onClick={onClose}
             >
               {item.text}
-            </a>
+            </Link>
           )}
         </div>
       ))}
@@ -76,11 +86,14 @@ const NavbarItem: React.FC<NavbarItemProps> = ({ items }) => {
   );
 };
 
-const MobileMenu = () => {
+interface NavMobilProps{
+    onClose: () => void
+}
+const MobileMenu: React.FC<NavMobilProps> = ({ onClose }) => {
   const menuData: MenuItem[] = [
     {
       text: "Dashboard",
-      href: "#",
+      href: "/",
     },
     {
       text: "Reception",
@@ -107,7 +120,7 @@ const MobileMenu = () => {
     },
     {
       text: "Night Audit",
-      href: "#",
+      href: "/example",
     },
     {
       text: "Housekeeping",
@@ -171,12 +184,7 @@ const MobileMenu = () => {
   ];
 
   return (
-    <div
-      className="sm:block md:block lg:hidden xl:hidden absolute bg-white w-full"
-      id="mobile-menu"
-    >
-      <NavbarItem items={menuData} />
-    </div>
+      <NavbarItem onClose={onClose} items={menuData} />
   );
 };
 

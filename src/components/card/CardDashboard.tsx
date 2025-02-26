@@ -8,7 +8,7 @@ import InfoItem from '../info/InfoItem';
 
 const CardDashboard = () => {
   return (
-    <div className='w-full mb-3'>
+    <div className='w-full'>
         <div className="rounded-lg overflow-hidden shadow-sm bg-white p-5">
             <div className='flex mb-5'>
                 <h3 className='font-bold'>Current</h3>
