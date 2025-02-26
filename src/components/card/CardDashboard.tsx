@@ -1,29 +1,34 @@
-import {
-    FaDoorOpen,
-    FaHouse
-  } from 'react-icons/fa6';
+import InfoHeader from '../info/InfoHeader';
 
-import InfoItem from '../info/InfoItem';
-
-
-const CardDashboard = () => {
+interface CardDashboardProps {
+  title: string;
+  useDate?: boolean;
+  isRangePicker?: boolean;
+  icon?: React.ReactNode;
+  content: React.ReactNode;
+}
+const CardDashboard: React.FC<CardDashboardProps> = ({
+  title,
+  useDate,
+  isRangePicker,
+  icon,
+  content,
+}) => {
   return (
     <div className='w-full mb-3'>
-        <div className="rounded-lg overflow-hidden shadow-sm bg-white p-5">
-            <div className='flex mb-5'>
-                <h3 className='font-bold'>Current</h3>
-            </div>
-            <div className='flex flex-wrap gap-8 justify-between'>
-                <InfoItem title='% Sold' value='116.4 %' icons={FaHouse} />
-                <InfoItem title='Sold Room' value='78' icons={FaDoorOpen} />
-            </div>
-            <div className='flex flex-wrap gap-8 justify-between mt-4'>
-                <InfoItem title='% Sold' value='116.4 %' icons={FaHouse} />
-                <InfoItem title='Sold Room' value='78' icons={FaDoorOpen} />
-            </div>
+      <div className='rounded-lg overflow-visible shadow-sm bg-white p-5'>
+        <div className='flex mb-5'>
+          <InfoHeader
+            title={title}
+            useDate={useDate}
+            isRangePicker={isRangePicker}
+            icon={icon}
+          />
         </div>
+        {content}
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default CardDashboard
+export default CardDashboard;
