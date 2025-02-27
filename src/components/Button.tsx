@@ -21,15 +21,6 @@ const Button = ({
       onClick={onClick}
       type={type}
     >
-      {/* <div className='flex flex-row items-center justify-center '>
-        {icon ? (
-          <span className='flex flex-row'>
-            {icon} {title}
-          </span>
-        ) : (
-          title
-        )}
-      </div> */}
       {icon && <span>{icon}</span>}
       {title && <span>{title}</span>}
     </button>
