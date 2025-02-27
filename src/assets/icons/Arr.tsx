@@ -1,10 +1,10 @@
 interface ArrIconProps {
-  isActive?: boolean;
+  color?: string;
   w?: number;
   h?: number;
 }
 
-const ArrIcon: React.FC<ArrIconProps> = ({ isActive, w = 6, h = 6 }) => {
+const ArrIcon: React.FC<ArrIconProps> = ({ color, w = 6, h = 6 }) => {
   return (
     <svg
       width='24'
@@ -12,9 +12,7 @@ const ArrIcon: React.FC<ArrIconProps> = ({ isActive, w = 6, h = 6 }) => {
       viewBox='0 0 24 24'
       fill='none'
       xmlns='http://www.w3.org/2000/svg'
-      className={`w-${w} h-${h} ${
-        isActive ? 'text-[#1B55E2]' : 'text-gray-400'
-      }`}
+      className={`w-${w} h-${h} text-[${color}]`}
     >
       <path
         d='M4 8L3.29289 7.29289L2.58579 8L3.29289 8.70711L4 8ZM19 10C19 10.5523 19.4477 11 20 11C20.5523 11 21 10.5523 21 10H19ZM7.29289 3.29289L3.29289 7.29289L4.70711 8.70711L8.70711 4.70711L7.29289 3.29289ZM3.29289 8.70711L7.29289 12.7071L8.70711 11.2929L4.70711 7.29289L3.29289 8.70711ZM4 9H18V7H4V9ZM18 9C18.5523 9 19 9.44772 19 10H21C21 8.34315 19.6569 7 18 7V9Z'

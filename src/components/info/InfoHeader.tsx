@@ -78,7 +78,7 @@ const InfoHeader: React.FC<InfoHeaderProps> = ({
               className='flex items-center bg-gray-100 p-2 rounded-lg space-x-2 cursor-pointer'
               onClick={toggleShowCalendar}
             >
-              <CalendarIcon h={8} />
+              <CalendarIcon h={8} color='text-gray-400' />
               <span className='text-gray-400'>{displayDate}</span>
             </div>
             {showCalendar && (
