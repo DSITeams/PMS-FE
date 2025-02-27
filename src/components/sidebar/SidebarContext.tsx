@@ -14,8 +14,8 @@ const SidebarContext = createContext<SidebarContextType | undefined>(undefined);
 export const SidebarProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const [expanded, setExpanded] = useState(false);
-  const [activeItem, setActiveItem] = useState('');
+  const [expanded, setExpanded] = useState(true);
+  const [activeItem, setActiveItem] = useState('Dashboard');
   const [openSubMenu, setOpenSubMenu] = useState<string | null>(null);
 
   return (

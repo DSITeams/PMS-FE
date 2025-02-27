@@ -5,6 +5,7 @@ import Login from '../pages/login';
 import Dashboard from '../pages/dashboard';
 import Layout from '../pages/layout';
 import Reservation from '../pages/reservation';
+import ExampleTable from '../pages/example';
 
 function AppRoutes() {
   const isAuth = useSelector((state: RootState) => state.auth.isAuth);
@@ -14,6 +15,7 @@ function AppRoutes() {
         <Route path='/login' element={<Login />} />
         <Route path='/' element={<Layout title="Dashboard"/>}>
           <Route index element={<Dashboard />} />
+          <Route path='/example' element={<ExampleTable />} />
         </Route>
         <Route path='/' element={<Layout title="Reservation" />}>
           <Route path='/reservation' element={<Reservation/>} />

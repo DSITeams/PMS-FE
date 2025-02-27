@@ -23,14 +23,14 @@ const Login = () => {
   return (
     <div className='bg-white h-full w-full flex items-center justify-center'>
       <div className='flex w-full h-full'>
-      <div className="sm:hidden lg:flex md:hidden lg:w-3/5 hidden xl:w-3/5 items-center justify-center">
+        <div className='sm:hidden lg:flex md:hidden lg:w-3/5 hidden xl:w-3/5 items-center justify-center'>
           <img
-            src="src/assets/images/WP-DSI.png"
-            className="w-xl h-lg object-cover"
-            alt=""
+            src='src/assets/images/WP-DSI.png'
+            className='w-xl h-lg object-cover'
+            alt=''
           />
         </div>
-        <div className="w-full lg:w-2/5 md:w-full xl:w-2/5">
+        <div className='w-full lg:w-2/5 md:w-full xl:w-2/5'>
           <div className='h-screen flex flex-col items-center justify-center'>
             <img
               src='src/assets/images/logo-title.png'
@@ -77,7 +77,11 @@ const Login = () => {
                   console.log('remember me:', value);
                 }}
               />
-              <Button type='submit'>Login</Button>
+              <Button
+                type='submit'
+                title='Login'
+                className='mt-6 bg-gradient-to-r from-blue-900 to-blue-600'
+              />
             </form>
           </div>
         </div>
