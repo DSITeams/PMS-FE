@@ -1,3 +1,4 @@
+import SideModal from "../../components/modal/SideModal";
 import Table from "../../components/table/Table";
 import TableTbody from "../../components/table/TableTbody";
 import TableThead from "../../components/table/TableThead";
@@ -31,15 +32,25 @@ function ExampleTable() {
   };
 
   return (
-    <div className="bg-white mt-5 rounded-lg">
-      <Table>
-        <TableThead dataChecked={checkData} columns={columns} />
-        <TableTbody
-          columns={columns}
-          data={dataMaping}
-          dataChecked={checkData}
-        />
-      </Table>
+    // <div className="bg-white mt-5 rounded-lg">
+    //   <Table>
+    //     <TableThead dataChecked={checkData} columns={columns} />
+    //     <TableTbody
+    //       columns={columns}
+    //       data={dataMaping}
+    //       dataChecked={checkData}
+    //     />
+    //   </Table>
+    // </div>
+    <div>
+      <SideModal width="sm:max-w-[1000px]">
+        <div className="flex h-full flex-col py-6 px-4 sm:px-6">
+          <h2 className="text-base font-semibold text-gray-900">Panel title</h2>
+          <div className="relative mt-6 flex-1 overflow-y-auto">
+            <p>Isi konten panel</p>
+          </div>
+        </div>
+      </SideModal>
     </div>
   );
 }
