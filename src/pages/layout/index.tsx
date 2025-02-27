@@ -1,3 +1,4 @@
+import React from 'react'
 import { Outlet, useNavigate } from 'react-router-dom';
 import Sidebar from '../../components/sidebar/Sidebar';
 import Header from '../../components/header';
@@ -21,7 +22,11 @@ import { AppDispatch, RootState } from '../../stores/store';
 import ModalAlert from '../../components/modal/ModalAlert';
 import { closeModal } from '../../stores/slice/modalSlice';
 
-const Layout = () => {
+interface LayoutProps {
+  title: string;
+}
+
+const Layout: React.FC<LayoutProps> = ({title}) => {
   const dispatch: AppDispatch = useDispatch();
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState("");
@@ -129,8 +134,8 @@ const Layout = () => {
             className="sm:block md:block lg:hidden xl:hidden mb-5"
           />
           <Header
-            title={"Dashboard"}
-            subtitle={"Dashboard"}
+            title={title}
+            subtitle={title}
             profilePict={"/src/assets/images/test.jpg"}
             name={"Windah Batubara"}
             position={"Administrator"}

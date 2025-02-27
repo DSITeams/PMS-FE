@@ -4,6 +4,7 @@ import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import Login from '../pages/login';
 import Dashboard from '../pages/dashboard';
 import Layout from '../pages/layout';
+import Reservation from '../pages/reservation';
 import ExampleTable from '../pages/example';
 
 function AppRoutes() {
@@ -12,9 +13,12 @@ function AppRoutes() {
     <Router>
       <Routes>
         <Route path='/login' element={<Login />} />
-        <Route path='/' element={<Layout />}>
+        <Route path='/' element={<Layout title="Dashboard"/>}>
           <Route index element={<Dashboard />} />
           <Route path='/example' element={<ExampleTable />} />
+        </Route>
+        <Route path='/' element={<Layout title="Reservation" />}>
+          <Route path='/reservation' element={<Reservation/>} />
         </Route>
       </Routes>
     </Router>
