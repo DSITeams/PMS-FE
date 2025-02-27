@@ -1,20 +1,12 @@
 import CheckBox from "../Checkbox";
 
-interface TableRow {
-  code: string;
-  date: string;
-  from: string;
-  to: string;
-  description: string;
-  user: string;
-  mod: string;
-}
-
 interface TBodyProps {
-  data: TableRow[];
+  data: Record<string, string>[];
+  columns: string[];
   dataChecked: () => void;
 }
-const TableTbody: React.FC<TBodyProps> = ({ data, dataChecked }) => {
+
+const TableTbody: React.FC<TBodyProps> = ({ data, columns, dataChecked }) => {
   return (
     <tbody className="text-gray-700 text-sm">
       {data.map((row, index) => (
@@ -22,13 +14,11 @@ const TableTbody: React.FC<TBodyProps> = ({ data, dataChecked }) => {
           <td className="ps-6">
             <CheckBox checked={false} onChange={dataChecked} />
           </td>
-          <td className="py-5 px-4">{row.code}</td>
-          <td className="py-5 px-6">{row.date}</td>
-          <td className="py-5 px-6">{row.from}</td>
-          <td className="py-5 px-6">{row.to}</td>
-          <td className="py-5 px-6">{row.description}</td>
-          <td className="py-5 px-6">{row.user}</td>
-          <td className="py-5 px-6">{row.mod}</td>
+          {columns.map((col, colIndex) => (
+            <td key={colIndex} className="py-5 px-6">
+              {row[col.toLowerCase()]}
+            </td>
+          ))}
         </tr>
       ))}
     </tbody>
