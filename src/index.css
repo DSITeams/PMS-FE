@@ -21,6 +21,10 @@
   background-color: var(--primary-color);
 }
 
+.bg-error {
+  background-color: var(--error-color);
+}
+
 .text-blue-primary {
   color: var(--primary-color);
 }

@@ -37,24 +37,24 @@ const Dashboard = () => {
                   <InfoItem
                     title='% Sold'
                     value='116.4 %'
-                    icons={<HomeIcon isActive />}
+                    icons={<HomeIcon color='#1b55e2' />}
                   />
                   <InfoItem
                     title='Expected Arrival'
                     value='20'
-                    icons={<InIcon isActive />}
+                    icons={<InIcon color='#1b55e2' />}
                   />
                 </div>
                 <div className='flex flex-col'>
                   <InfoItem
                     title='Sold Room'
                     value='78'
-                    icons={<BedIcon isActive />}
+                    icons={<BedIcon color='#1b55e2' />}
                   />
                   <InfoItem
                     title='Expected Departure'
                     value='0'
-                    icons={<OutIcon isActive />}
+                    icons={<OutIcon color='#1b55e2' />}
                   />
                 </div>
               </div>
@@ -71,24 +71,24 @@ const Dashboard = () => {
                   <InfoItem
                     title='% Sold'
                     value='146.3 %'
-                    icons={<HomeIcon isActive />}
+                    icons={<HomeIcon color='#1b55e2' />}
                   />
                   <InfoItem
                     title='ARR'
                     value='535,867'
-                    icons={<ArrIcon isActive />}
+                    icons={<ArrIcon color='#1b55e2' />}
                   />
                 </div>
                 <div className='flex flex-col'>
                   <InfoItem
                     title='Sold Room'
                     value='98'
-                    icons={<BedIcon isActive />}
+                    icons={<BedIcon color='#1b55e2' />}
                   />
                   <InfoItem
                     title='Room Revenue'
                     value='52,515,18'
-                    icons={<WalletIcon isActive />}
+                    icons={<WalletIcon color='#1b55e2' />}
                   />
                 </div>
               </div>
@@ -101,7 +101,7 @@ const Dashboard = () => {
           title={'Outlet Revenue'}
           useDate
           isRangePicker={true}
-          icon={<TableIcon w={9} h={9} />}
+          icon={<TableIcon w={9} h={9} color='#ffffff' />}
           content={
             <>
               <Chart data={data} daysOfWeek={daysOfWeek} />
@@ -112,31 +112,31 @@ const Dashboard = () => {
           title={'Tonight'}
           useDate
           isRangePicker={false}
-          icon={<ChartIcon w={9} h={9} />}
+          icon={<ChartIcon w={9} h={9} color='#ffffff' />}
           content={
             <>
               <div className='flex flex-wrap gap-8 justify-between'>
                 <InfoItem
                   title='% Sold'
                   value='116.4 %'
-                  icons={<HomeIcon isActive />}
+                  icons={<HomeIcon color='#1b55e2' />}
                 />
                 <InfoItem
                   title='Sold Room'
                   value='78'
-                  icons={<BedIcon isActive />}
+                  icons={<BedIcon color='#1b55e2' />}
                 />
               </div>
               <div className='flex flex-wrap gap-8 justify-between mt-4'>
                 <InfoItem
                   title='Expected Arrival'
                   value='116.4 %'
-                  icons={<InIcon isActive />}
+                  icons={<InIcon color='#1b55e2' />}
                 />
                 <InfoItem
                   title='Expected Departure'
                   value='78'
-                  icons={<OutIcon isActive />}
+                  icons={<OutIcon color='#1b55e2' />}
                 />
               </div>
             </>
@@ -153,24 +153,24 @@ const Dashboard = () => {
                 <InfoItem
                   title='% Sold'
                   value='116.4 %'
-                  icons={<HomeIcon isActive />}
+                  icons={<HomeIcon color='#1b55e2' />}
                 />
                 <InfoItem
                   title='Sold Room'
                   value='78'
-                  icons={<BedIcon isActive />}
+                  icons={<BedIcon color='#1b55e2' />}
                 />
               </div>
               <div className='flex flex-wrap gap-8 justify-between mt-4'>
                 <InfoItem
                   title='Expected Arrival'
                   value='116.4 %'
-                  icons={<InIcon isActive />}
+                  icons={<InIcon color='#1b55e2' />}
                 />
                 <InfoItem
                   title='Expected Departure'
                   value='78'
-                  icons={<OutIcon isActive />}
+                  icons={<OutIcon color='#1b55e2' />}
                 />
               </div>
             </>

@@ -3,10 +3,10 @@ import React from 'react';
 interface BedIconProps {
   w?: number;
   h?: number;
-  isActive?: boolean;
+  color?: string;
 }
 
-const BedIcon: React.FC<BedIconProps> = ({ w = 6, h = 6, isActive }) => {
+const BedIcon: React.FC<BedIconProps> = ({ w = 6, h = 6, color }) => {
   return (
     <svg
       width='26'
@@ -14,11 +14,9 @@ const BedIcon: React.FC<BedIconProps> = ({ w = 6, h = 6, isActive }) => {
       viewBox='0 0 26 26'
       fill='none'
       xmlns='http://www.w3.org/2000/svg'
-      className={`w-${w} h-${h} ${
-        isActive ? 'text-[#1B55E2]' : 'text-gray-400'
-      }`}
+      className={`w-${w} h-${h} text-[${color}]`}
     >
-      <g clip-path='url(#clip0_388_1200)'>
+      <g clipPath='url(#clip0_388_1200)'>
         <path
           opacity='0.3'
           d='M21.7499 13H5.08325V16.125H21.7499V13Z'

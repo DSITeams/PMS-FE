@@ -3,13 +3,9 @@ import React from 'react';
 interface QuestionIconProps {
   w?: number;
   h?: number;
-  isActive?: boolean;
+  color?: string;
 }
-const QuestionIcon: React.FC<QuestionIconProps> = ({
-  w = 6,
-  h = 6,
-  isActive,
-}) => {
+const QuestionIcon: React.FC<QuestionIconProps> = ({ w = 6, h = 6, color }) => {
   return (
     <svg
       width='24'
@@ -17,9 +13,7 @@ const QuestionIcon: React.FC<QuestionIconProps> = ({
       viewBox='0 0 24 24'
       fill='none'
       xmlns='http://www.w3.org/2000/svg'
-      className={`w-${w} h-${h} ${
-        isActive ? 'text-[#1B55E2]' : 'text-gray-400'
-      }`}
+      className={`w-${w} h-${h} text-[${color}]`}
     >
       <path
         fillRule='evenodd'

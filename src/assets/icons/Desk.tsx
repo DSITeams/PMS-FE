@@ -3,9 +3,9 @@ import React from 'react';
 interface DeskIconProps {
   w?: number;
   h?: number;
-  isActive?: boolean;
+  color?: string;
 }
-const DeskIcon: React.FC<DeskIconProps> = ({ w = 6, h = 6, isActive }) => {
+const DeskIcon: React.FC<DeskIconProps> = ({ w = 6, h = 6, color }) => {
   return (
     <svg
       width='24'
@@ -13,9 +13,7 @@ const DeskIcon: React.FC<DeskIconProps> = ({ w = 6, h = 6, isActive }) => {
       viewBox='0 0 24 24'
       fill='none'
       xmlns='http://www.w3.org/2000/svg'
-      className={`w-${w} h-${h} ${
-        isActive ? 'text-[#1B55E2]' : 'text-gray-400'
-      }`}
+      className={`w-${w} h-${h} text-[${color}]`}
     >
       <path
         d='M16 3L16 6M8 3L8 6'

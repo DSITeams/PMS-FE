@@ -3,9 +3,9 @@ import React from 'react';
 interface InIconProps {
   w?: number;
   h?: number;
-  isActive?: boolean;
+  color?: string;
 }
-const InIcon: React.FC<InIconProps> = ({ w = 6, h = 6, isActive }) => {
+const InIcon: React.FC<InIconProps> = ({ w = 6, h = 6, color }) => {
   return (
     <svg
       width='26'
@@ -13,9 +13,7 @@ const InIcon: React.FC<InIconProps> = ({ w = 6, h = 6, isActive }) => {
       viewBox='0 0 26 26'
       fill='none'
       xmlns='http://www.w3.org/2000/svg'
-      className={`w-${w} h-${h} ${
-        isActive ? 'text-[#1B55E2]' : 'text-gray-400'
-      }`}
+      className={`w-${w} h-${h} text-[${color}]`}
     >
       <path
         d='M3.625 9.875V16.375C3.625 19.2034 3.625 20.6176 4.50368 21.4963C5.38236 22.375 6.79657 22.375 9.625 22.375H16.375C19.2034 22.375 20.6176 22.375 21.4963 21.4963C22.375 20.6176 22.375 19.2034 22.375 16.375V9.625C22.375 6.79657 22.375 5.38236 21.4963 4.50368C20.6176 3.625 19.2034 3.625 16.375 3.625H9.875'
