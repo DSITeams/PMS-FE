@@ -41,43 +41,44 @@ function ExampleTable() {
   const actions = [
     {
       title: "Check In",
-      color: "#8DBF42",
-      bgColor: "#8DBF424D",
+      color: "text-[#8DBF42]",
+      bgColor: "bg-[#8DBF424D]",
       icon: <BookChecklist color="#8DBF42" />,
     },
     {
       title: "Block",
-      color: "#FF8905",
-      bgColor: "#FF89054D",
+      color: " text-[#FF8905]",
+      bgColor: "bg-[#FF89054D]",
       icon: <Block color="#FF8905" />,
     },
     {
       title: "Realese",
-      color: "#FB2C36",
-      bgColor: "#FB2C364D",
+      color: "text-[#FB2C36]",
+      bgColor: "bg-[#FB2C364D]",
       icon: <BookChecklist color="#fc4952" />,
     },
     {
       title: "RC",
-      color: "#F0B101",
-      bgColor: "#F0B1014D",
+      color: "text-[#F0B101]",
+      bgColor: "bg-[#F0B1014D]",
       icon: <RcIcon color="#F0B101" />,
     },
     {
       title: "Creatd Key",
-      color: "#C20008",
-      bgColor: "#C200084D",
+      color: "text-[#C20008]",
+      bgColor: "bg-[#C200084D]",
       icon: <KeyIcon color="#C20008" />,
     },
     {
       title: "Refresh",
-      color: "#2B7EFE",
-      bgColor: "#2B7EFE4D",
+      color: "text-[#2B7EFE]",
+      bgColor: "bg-[#2B7EFE4D]",
       icon: <RefreshIcon color="#2B7EFE" />,
     },
   ];
 
   return (
+      // table component
     // <div className="bg-white mt-5 rounded-lg">
     //   <Table>
     //     <TableThead dataChecked={checkData} columns={columns} />
@@ -89,6 +90,19 @@ function ExampleTable() {
     //   </Table>
     // </div>
 
+      // button action in reservation
+    // <div className="flex gap-3">
+    //     {actions.map((action, index) => (
+    //       <ButtonAction
+    //         key={index}
+    //         title={action.title}
+    //         className={`${action.bgColor} ${action.color} cursor-pointer`}
+    //         icon={action.icon}
+    //         type="button"
+    //       />
+    //     ))}
+    //   </div>
+
     <div>
       <SideModal width="sm:max-w-[1000px]">
         <div className="flex h-full flex-col py-6 px-4 sm:px-6">
@@ -98,20 +112,6 @@ function ExampleTable() {
           </div>
         </div>
       </SideModal>
-
-      {actions.map((action, index) => (
-        <ButtonAction
-          key={index}
-          title={action.title}
-          className={`bg-[${action.bgColor}] text-[${action.color}]`}
-          icon={action.icon}
-        />
-      ))}
-      <ButtonAction
-          title="Release"
-          className={`bg-[#FB2C364D] text-[#FB2C36]`}
-          icon={<RealeseIcon />}
-        />
     </div>
   );
 }

@@ -40,7 +40,7 @@ const SideModal: React.FC<SideModalProps> = ({ width, children }) => {
     <div>
       <button
         onClick={openModalSide}
-        className="px-3 py-2 bg-white shadow-md rounded-md"
+        className="px-3 py-2 bg-white shadow-md rounded-md cursor-pointer"
       >
         Click modal side
       </button>

@@ -17,7 +17,7 @@ const ButtonAction: React.FC<ButtonActionProps> = ({
 }: ButtonActionProps) => {
   return (
     <button
-      className={`px-3 py-2 w-[122px] rounded-lg text-sm font-[700] tracking-wider ${className}`}
+      className={`py-2 w-[122px] rounded-lg text-sm font-[700] tracking-wider ${className}`}
       onClick={onClick}
       type={type}
     >
