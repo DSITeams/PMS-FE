@@ -2,10 +2,12 @@ import { useState } from "react";
 import Card from "../../components/card/Card"
 import Fieldset from "../../components/Fieldset";
 import FormInputGroupDate from "../../components/FormInputGroupDate";
+import FormInputGroupTextArea from "../../components/FormInputGroupTextArea";
 
 const Reservation = () => {
     const [credentials, setCredentials] = useState({
         arrivalDate: new Date().toISOString().split("T")[0],
+        guestNote: ''
     });
 
     return (
@@ -53,8 +55,22 @@ const Reservation = () => {
                             </>
                         } />
                         <Fieldset text="5" spanText={false} content = {
-                            <>
-                            </>
+                            <div className="grid grid-cols-12 gap-4">
+                                <FormInputGroupTextArea
+                                    label= "Guest Note"
+                                    id= "guestNote"
+                                    name= "guestNote"
+                                    placeholder= "Guest Note"
+                                    className= "col-span-12"
+                                    value={credentials.guestNote}
+                                    onChange={(e) =>
+                                        setCredentials({ ...credentials, guestNote: e.target.value })
+                                    }
+                                    required= {false}
+                                    cols= {30}
+                                    rows= {5}
+                                />
+                            </div>
                         } />
                         <Fieldset text="6" spanText={false} content = {
                             <>
