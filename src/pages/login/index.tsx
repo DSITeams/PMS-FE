@@ -4,7 +4,6 @@ import FormInput from '../../components/FormInput';
 import { useNavigate } from 'react-router-dom';
 import useAuth from '../../viewModels/UseAuth';
 import CheckBox from '../../components/Checkbox';
-import HomeIcon from '../../assets/icons/Home';
 
 const Login = () => {
   const [credentials, setCredentials] = useState({
