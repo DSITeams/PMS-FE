@@ -16,7 +16,7 @@ const CardDashboard: React.FC<CardDashboardProps> = ({
 }) => {
   return (
     <div className='w-full mb-3'>
-      <div className='rounded-lg overflow-visible shadow-sm bg-white p-5'>
+      <div className='rounded-lg overflow-visible bg-white p-5'>
         <div className='flex mb-5'>
           <InfoHeader
             title={title}

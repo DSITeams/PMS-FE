@@ -25,7 +25,7 @@ const Dashboard = () => {
 
   return (
     <div className='flexmd:flex-col lg:flex-row xl:flex-row gap-4'>
-      <div className='flex flex-col md:flex-col lg:flex-row xl:flex-row gap-4 px-8'>
+      <div className='flex flex-col md:flex-col lg:flex-row xl:flex-row gap-4'>
         <CardDashboard
           title={'Current'}
           useDate
@@ -96,7 +96,7 @@ const Dashboard = () => {
           }
         />
       </div>
-      <div className='flex flex-col md:flex-col lg:flex-row xl:flex-row gap-4 px-8'>
+      <div className='flex flex-col md:flex-col lg:flex-row xl:flex-row gap-4'>
         <CardDashboard
           title={'Outlet Revenue'}
           useDate
@@ -143,7 +143,7 @@ const Dashboard = () => {
           }
         />
       </div>
-      <div className='flex flex-col md:flex-col lg:flex-row xl:flex-row gap-4 px-8'>
+      <div className='flex flex-col md:flex-col lg:flex-row xl:flex-row gap-4'>
         <CardDashboard
           title={'Tonight'}
           useDate={false}

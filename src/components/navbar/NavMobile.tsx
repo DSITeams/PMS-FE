@@ -1,10 +1,26 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import {
+  FaArrowRightFromBracket,
+  FaLock,
+} from "react-icons/fa6";
+import NavbarItem from "./NavbarItem";
 
 interface ModalProps {
   modalOpen?: () => void;
   className?: string;
+  name: string;
+  position: string;
+  changePassword: () => void;
+  logout: () => void;
 }
-const NavMobile: React.FC<ModalProps> = ({ modalOpen, className }) => {
+const NavMobile: React.FC<ModalProps> = ({
+  modalOpen,
+  className,
+  name,
+  position,
+  changePassword,
+  logout,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isOpenNav, setOpenNav] = useState(false);
 
@@ -14,6 +30,10 @@ const NavMobile: React.FC<ModalProps> = ({ modalOpen, className }) => {
 
   const navDropDown = () => {
     setOpenNav(!isOpenNav);
+  };
+
+  const closeNav = () => {
+    setOpenNav(false);
   };
 
   return (
@@ -36,14 +56,14 @@ const NavMobile: React.FC<ModalProps> = ({ modalOpen, className }) => {
                   className="block size-6"
                   fill="none"
                   viewBox="0 0 24 24"
-                  stroke-width="1.5"
+                  strokeWidth="1.5"
                   stroke="currentColor"
                   aria-hidden="true"
                   data-slot="icon"
                 >
                   <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                     d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
                   />
                 </svg>
@@ -52,14 +72,14 @@ const NavMobile: React.FC<ModalProps> = ({ modalOpen, className }) => {
                   className="hidden size-6"
                   fill="none"
                   viewBox="0 0 24 24"
-                  stroke-width="1.5"
+                  strokeWidth="1.5"
                   stroke="currentColor"
                   aria-hidden="true"
                   data-slot="icon"
                 >
                   <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                     d="M6 18 18 6M6 6l12 12"
                   />
                 </svg>
@@ -69,7 +89,7 @@ const NavMobile: React.FC<ModalProps> = ({ modalOpen, className }) => {
               <div className="flex shrink-0 items-center">
                 <img
                   className="h-8 w-auto"
-                  src="/vite.svg"
+                  src="/src/assets/icons/logo.png"
                   alt="Your Company"
                 />
               </div>
@@ -88,14 +108,14 @@ const NavMobile: React.FC<ModalProps> = ({ modalOpen, className }) => {
                   className="size-6"
                   fill="none"
                   viewBox="0 0 24 24"
-                  stroke-width="1.5"
+                  strokeWidth="1.5"
                   stroke="currentColor"
                   aria-hidden="true"
                   data-slot="icon"
                 >
                   <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                     d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0"
                   />
                 </svg>
@@ -122,40 +142,30 @@ const NavMobile: React.FC<ModalProps> = ({ modalOpen, className }) => {
                 </div>
 
                 {isOpen && (
-                  <div
-                    className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 ring-1 shadow-lg ring-black/5 focus:outline-hidden"
-                    role="menu"
-                    aria-orientation="vertical"
-                    aria-labelledby="user-menu-button"
-                    tabIndex={-1}
-                  >
-                    <a
-                      href="#"
-                      className="block px-4 py-2 text-sm text-gray-700"
-                      role="menuitem"
-                      tabIndex={-1}
-                      id="user-menu-item-0"
-                    >
-                      Your Profile
-                    </a>
-                    <a
-                      href="#"
-                      className="block px-4 py-2 text-sm text-gray-700"
-                      role="menuitem"
-                      tabIndex={-1}
-                      id="user-menu-item-1"
-                    >
-                      Settings
-                    </a>
-                    <a
-                      href="#"
-                      className="block px-4 py-2 text-sm text-gray-700"
-                      role="menuitem"
-                      tabIndex={-1}
-                      id="user-menu-item-2"
-                    >
-                      Sign out
-                    </a>
+                  <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 shadow-lg rounded-lg p-2 z-100">
+                    <p className="px-4 text-gray-700 font-semibold">{name}</p>
+                    <span className="px-4 py-2 font-light text-xs">
+                      {position}
+                    </span>
+                    <hr className="mt-2" />
+                    <div className="flex items-center ml-4">
+                      <FaLock className="text-black" />
+                      <button
+                        className="w-full text-left px-4 py-2 text-sm text-gray-600 hover:bg-gray-100"
+                        onClick={changePassword}
+                      >
+                        Edit Password
+                      </button>
+                    </div>
+                    <div className="flex items-center ml-4">
+                      <FaArrowRightFromBracket className="text-red-500" />
+                      <button
+                        className="w-full text-left px-4 py-2 text-sm text-gray-600 hover:bg-gray-100"
+                        onClick={logout}
+                      >
+                        Logout
+                      </button>
+                    </div>
                   </div>
                 )}
               </div>
@@ -164,33 +174,13 @@ const NavMobile: React.FC<ModalProps> = ({ modalOpen, className }) => {
         </div>
 
         {isOpenNav && (
-          <div className="sm:block md:block lg:hidden xl:hidden absolute bg-white w-full" id="mobile-menu">
-            <div className="space-y-1 px-2 pt-2 pb-3">
-              <a
-                href="#"
-                className="block rounded-md bg-indigo-200 text-blue-primary px-3 py-2 text-base font-medium "
-              >
-                Dashboard
-              </a>
-              <a
-                href="#"
-                className="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-indigo-50"
-              >
-                Team
-              </a>
-              <a
-                href="#"
-                className="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-indigo-50"
-              >
-                Projects
-              </a>
-              <a
-                href="#"
-                className="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-indigo-50"
-              >
-                Calendar
-              </a>
-            </div>
+          <div
+            className={`sm:block md:block lg:hidden xl:hidden absolute bg-white w-full ${
+              isOpenNav ? 'open' : ''
+            }`}
+            id="mobile-menu"
+          >
+            <NavbarItem onClose={closeNav} />
           </div>
         )}
       </nav>
