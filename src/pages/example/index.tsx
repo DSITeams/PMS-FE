@@ -41,38 +41,32 @@ function ExampleTable() {
   const actions = [
     {
       title: "Check In",
-      color: "text-[#8DBF42]",
-      bgColor: "bg-[#8DBF424D]",
+      atribute: "text-[#8DBF42] bg-[#8DBF424D]",
       icon: <BookChecklist color="#8DBF42" />,
     },
     {
       title: "Block",
-      color: " text-[#FF8905]",
-      bgColor: "bg-[#FF89054D]",
+      atribute: " text-[#FF8905] bg-[#FF89054D]",
       icon: <Block color="#FF8905" />,
     },
     {
       title: "Realese",
-      color: "text-[#FB2C36]",
-      bgColor: "bg-[#FB2C364D]",
+      atribute: "text-[#FB2C36] bg-[#FB2C364D]",
       icon: <BookChecklist color="#fc4952" />,
     },
     {
       title: "RC",
-      color: "text-[#F0B101]",
-      bgColor: "bg-[#F0B1014D]",
+      atribute: "text-[#F0B101] bg-[#F0B1014D]",
       icon: <RcIcon color="#F0B101" />,
     },
     {
       title: "Creatd Key",
-      color: "text-[#C20008]",
-      bgColor: "bg-[#C200084D]",
+      atribute: "text-[#C20008] bg-[#C200084D]",
       icon: <KeyIcon color="#C20008" />,
     },
     {
       title: "Refresh",
-      color: "text-[#2B7EFE]",
-      bgColor: "bg-[#2B7EFE4D]",
+      atribute: "text-[#2B7EFE] bg-[#2B7EFE4D]",
       icon: <RefreshIcon color="#2B7EFE" />,
     },
   ];
@@ -91,17 +85,6 @@ function ExampleTable() {
     // </div>
 
       // button action in reservation
-    // <div className="flex gap-3">
-    //     {actions.map((action, index) => (
-    //       <ButtonAction
-    //         key={index}
-    //         title={action.title}
-    //         className={`${action.bgColor} ${action.color} cursor-pointer`}
-    //         icon={action.icon}
-    //         type="button"
-    //       />
-    //     ))}
-    //   </div>
 
     <div>
       <SideModal width="sm:max-w-[1000px]">
@@ -112,6 +95,18 @@ function ExampleTable() {
           </div>
         </div>
       </SideModal>
+
+      <div className="flex gap-3">
+        {actions.map((action, index) => (
+          <ButtonAction
+            key={index}
+            title={action.title}
+            className={`${action.atribute} cursor-pointer`}
+            icon={action.icon}
+            type="button"
+          />
+        ))}
+      </div>
     </div>
   );
 }
