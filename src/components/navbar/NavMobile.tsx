@@ -172,7 +172,7 @@ const NavMobile: React.FC<ModalProps> = ({
 
         {isOpenNav && (
           <div
-            className={`sm:block md:block lg:hidden xl:hidden absolute bg-white w-full ${
+            className={`sm:block md:block lg:hidden xl:hidden absolute bg-white w-full z-90 ${
               isOpenNav ? 'open' : ''
             }`}
             id='mobile-menu'

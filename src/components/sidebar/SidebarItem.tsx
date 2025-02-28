@@ -114,7 +114,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
       text-sm font-light whitespace-nowrap w-auto max-w-xs
       invisible opacity-0 -translate-x-3 transition-all
       group-hover:visible group-hover:opacity-100 group-hover:translate-x-0
-      z-50
+      z-100
     `}
           >
             <span>{text}</span>
