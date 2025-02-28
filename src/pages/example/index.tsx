@@ -22,6 +22,7 @@ import LockIcon from '../../assets/icons/Lock';
 import UserIcon from '../../assets/icons/User';
 import AlarmIcon from '../../assets/icons/Alarm';
 import TrashIcon from '../../assets/icons/Trash';
+import FormDropdown from '../../components/FormDropdown';
 
 function ExampleTable() {
   // const columns = ["Code", "Date", "From", "To", "Description", "User", "MOD"];
@@ -124,6 +125,10 @@ function ExampleTable() {
     },
   ];
 
+  const handleSelection = (selectedItems: string[]) => {
+    console.log('Selected Items:', selectedItems);
+  };
+
   return (
     // table component
     // <div className="bg-white mt-5 rounded-lg">
@@ -172,6 +177,34 @@ function ExampleTable() {
           />
         ))}
       </SideMenu>
+      <FormDropdown
+        title='Multi Select Dropdown'
+        options={[
+          'All',
+          'Car Park View',
+          'Double Bed',
+          'King Bed',
+          'Non Smoking Room',
+          'Queen Bed',
+          'Smoking Room',
+        ]}
+        multiSelect={true}
+        onSelect={handleSelection}
+      />
+
+      <FormDropdown
+        title='Single Select Dropdown'
+        options={[
+          'All',
+          'Car Park View',
+          'Double Bed',
+          'King Bed',
+          'Non Smoking Room',
+          'Queen Bed',
+          'Smoking Room',
+        ]}
+        onSelect={handleSelection}
+      />
     </div>
   );
 }
