@@ -112,7 +112,7 @@ const Dashboard = () => {
           title={'Tonight'}
           useDate
           isRangePicker={false}
-          icon={<ChartIcon w={9} h={9} color='#ffffff' />}
+          icon={<ChartIcon width='w-6 h-6' color='white' />}
           content={
             <>
               <div className='flex flex-wrap gap-8 justify-between'>

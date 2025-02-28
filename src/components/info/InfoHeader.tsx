@@ -75,17 +75,17 @@ const InfoHeader: React.FC<InfoHeaderProps> = ({
         {useDate && (
           <div className='relative w-full md:w-auto' ref={calendarRef}>
             <div
-              className='flex items-center bg-gray-100 p-2 rounded-lg space-x-2 cursor-pointer'
+              className='flex items-center bg-color px-4 py-2 rounded-lg space-x-2 cursor-pointer text-sm'
               onClick={toggleShowCalendar}
             >
-              <CalendarIcon h={8} color='text-gray-400' />
+              <CalendarIcon h={6} color='text-gray-400' />
               <span className='text-gray-400'>{displayDate}</span>
             </div>
             {showCalendar && (
               <div className='absolute top-full z-10 right-0 bg-white shadow-lg rounded-lg overflow-auto md:right-0 sm:right-0 mt-2'>
                 <Calendar
                   locale='en-EN'
-                  className='react-calendar'
+                  className='react-calendar p-2 bg-white rounded-lg shadow-md'
                   onChange={handleDateChange}
                   selectRange={isRangePicker}
                   value={isRangePicker ? selectedRange : selectedDate}
@@ -97,7 +97,7 @@ const InfoHeader: React.FC<InfoHeaderProps> = ({
         )}
 
         {icon && (
-          <div className='w-12 h-12 bg-primary rounded-lg flex items-center justify-center'>
+          <div className='p-2 bg-primary rounded-lg flex items-center justify-center'>
             {icon}
           </div>
         )}

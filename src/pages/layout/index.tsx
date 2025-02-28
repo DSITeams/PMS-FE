@@ -32,7 +32,7 @@ const Layout: React.FC<LayoutProps> = ({title}) => {
   const [searchQuery, setSearchQuery] = useState("");
 
   const sidebarItems = [
-    { text: "Dashboard", icon: <HomeIcon /> },
+    { text: "Dashboard", icon: <HomeIcon color='currentColor' /> },
     {
       text: "Reception",
       icon: <UserIcon />,
